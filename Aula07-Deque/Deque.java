@@ -36,8 +36,38 @@ public void addInicio(T dado){
         }
         ultimoNo.setIndice(tamanho);
         tamanho++;
-        atualizaIndice();
+}
+public void removeInicio(){
+        if(primeiroNo == null){
+            System.out.println("Listavazia!");
+        }else{
+            System.out.println("Dado: " + primeiroNo.getDado() + " removido!");
+            //T dadoTemp = primeiroNo.getDado();
+            primeiroNo = primeiroNo.getProximoNo();
+            if(primeiroNo != null){
+                primeiroNo.setAnteriorNo(null);
+                atualizaIndice();
+            }else{
+                ultimoNo = null;
+            }
+            tamanho--;
+        }
     }
-
+    public void removeFinal(){
+         if(ultimoNo == null){
+            System.out.println("Lista vazia!");
+        }else{
+            System.out.println("Dado: " + ultimoNo.getDado() + " removido!");
+            ultimoNo = ultimoNo.getAnteriorNo();
+            if(ultimoNo != null){
+                ultimoNo.setProximoNo(null);
+            }else{
+              primeiroNo = null;
+            }
+            tamanho--;
+        }
+        
+    }
+}
 
 
