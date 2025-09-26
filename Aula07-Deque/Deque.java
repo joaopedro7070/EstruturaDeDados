@@ -70,4 +70,46 @@ public void removeInicio(){
     }
 }
 
+public void peekInicio(){
+    if(primeiroNo == null){
+        System.out.println("Deque vazio!");
+        return;
+    }else{
+        System.out.println("Dado Inicio:" + primeiroNo.toString());
+    }
+}
+
+    public void peekFinal(){
+    if(ultimoNo == null){
+        System.out.println("Deque vazio!");
+        return;
+    }else{
+        System.out.println("Dado Inicio:" + ultimoNo.toString());
+    }
+}
+
+    public void atualizaIndice(){
+        NoDuplo<T> aux = primeiroNo;
+        int indice =0;
+
+        while (aux != null) {
+            aux.setIndice(indice);
+            aux = aux.getProximoNo();
+            indice++;
+        }
+    }
+
+    public int tamanhoDeque(){
+
+        if(ultimoNo ==null){
+            return 0;
+         }else{
+            return ultimoNo.getIndice() +1;
+         }
+    }
+
+public void destruirDeque(){
+    primeiroNo = null;
+    ultimoNo = null;
+}
 
